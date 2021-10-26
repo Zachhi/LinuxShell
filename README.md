@@ -2,17 +2,50 @@
 
 My implementation of a linux shell
 
-Shell has the ability to function almost as much as the linux/ubuntu shell in your OS, which lets a user navigate through the file system and perform a wide variety of tasks using a series of easy to remember and simple commands. 
+Shell has the ability to function almost as much as the linux/ubuntu shell in your OS, which lets a user navigate through the file system and perform a wide variety of tasks using a series of easy to remember and simple commands. A lot of utility is included, such as the ability to parse through one or more pipes, input output redirection, directory processing, background processes, and more. Some of the commands you can use are detailed below
+
+I just created this repository so I could have this project on my main github account
 
 ## Demo
 
 https://www.youtube.com/watch?v=sT9SZdZqSJE
 
-### Types of Instructions
+### Types of Commands to Test Shell
 
-1. A-Instruction: Addressing instructions, used with a preceding `@`
-2. C-Instruction: Computation instructions, used with either `=` or `;`
-3. L-Instruction: Labels (Symbols) declaration instructions, used with `(symbol)`
+#### Simple Commands with Arguments
+
+* echo 'dsfdskj'
+* ls
+* ls -l /sbin
+* ls -l -a
+* ps -aux
+* ls -l ..
+
+#### Input/Output Redirection
+
+* ps aux > a
+* grep /init < a
+* grep /init < a > b
+
+#### Single and Multiple Piping
+
+* ls -l | grep <pattern>
+* ps aux | awk '/init/{print $1}' | sort -r
+* ps aux | awk '/init/{print $1}' | sort -r | awk '/ro/' |grep ro
+* ps aux | awk '{print $1$11}' | sort -r | grep root
+* awk '{print $1$11}'<test.txt | head -10 | head -8 | head -7| sort > output.txt
+  
+#### Background Processes
+
+* sleep 20 &
+
+#### Directory Processing
+* cd ../../
+* cd .
+* cd /home/
+* cd -
+ 
+Type quit to end the program
 
 ### Dependencies
 
@@ -22,8 +55,8 @@ https://www.youtube.com/watch?v=sT9SZdZqSJE
 ### Installing and Executing
 
 * Download the source code from github, or clone the repository into Visual Studio
-* Type `make` and then execute `/run`
-* You will want to do this in a virtual enviroment if you edit the files, otherwise you may compromise your computers health
+* Type `make` and then execute `./run`
+* You will want to do this in a virtual enviroment if you edit the files, otherwise you may compromise your computer's health
 
 ## Authors
 
